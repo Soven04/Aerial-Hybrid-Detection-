@@ -1,0 +1,83 @@
+/* ── AerialDet Global Styles ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-void:       #050709;
+  --bg-deep:       #090d12;
+  --bg-panel:      #0d1520;
+  --bg-card:       #111d2e;
+  --bg-hover:      #162540;
+
+  --accent:        #00d4ff;
+  --accent-dim:    #0090b0;
+  --accent-glow:   rgba(0, 212, 255, 0.18);
+  --accent2:       #ff6b35;
+  --accent2-dim:   #b04520;
+  --success:       #22ff88;
+  --warning:       #ffcc00;
+  --danger:        #ff3355;
+
+  --text-primary:  #e8f4ff;
+  --text-secondary:#7bafc8;
+  --text-muted:    #3d5a72;
+
+  --border:        rgba(0, 212, 255, 0.15);
+  --border-bright: rgba(0, 212, 255, 0.4);
+
+  --font-mono:     'Share Tech Mono', monospace;
+  --font-display:  'Orbitron', sans-serif;
+  --font-body:     'Rajdhani', sans-serif;
+}
+
+html, body { height: 100%; }
+
+body {
+  background: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  cursor: crosshair;
+}
+
+/* Scanline overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.06) 2px,
+    rgba(0,0,0,0.06) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--accent-dim); border-radius: 3px; }
+
+/* Utility */
+.mono { font-family: var(--font-mono); }
+.blink { animation: blink 1.2s step-end infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+@keyframes pulse-glow {
+  0%,100% { box-shadow: 0 0 8px var(--accent-glow); }
+  50%      { box-shadow: 0 0 24px var(--accent-glow), 0 0 48px rgba(0,212,255,0.08); }
+}
+
+@keyframes scan-in {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+@keyframes radar-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

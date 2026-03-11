@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+dist/
+*.pth
+*.pt
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.env.local
+
+# Data / checkpoints
+backend/checkpoints/
+backend/data/
+*.jpg
+*.png
+*.tif
+
+# IDE
+.vscode/settings.json
+.idea/
+*.DS_Store

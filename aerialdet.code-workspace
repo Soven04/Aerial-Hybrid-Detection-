@@ -1,0 +1,37 @@
+{
+  "folders": [
+    { "name": "Backend (FastAPI)", "path": "backend" },
+    { "name": "Frontend (React)",  "path": "frontend" },
+    { "name": "Root",              "path": "." }
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "${workspaceFolder:Backend (FastAPI)}/.venv/bin/python",
+    "editor.formatOnSave": true,
+    "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
+    "[javascript][javascriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "editor.tabSize": 2,
+    "files.exclude": { "**/__pycache__": true, "**/node_modules": true }
+  },
+  "launch": {
+    "configurations": [
+      {
+        "name": "FastAPI Backend",
+        "type": "python",
+        "request": "launch",
+        "module": "uvicorn",
+        "args": ["app:app", "--reload", "--port", "8000"],
+        "cwd": "${workspaceFolder:Backend (FastAPI)}",
+        "console": "integratedTerminal"
+      }
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.black-formatter",
+      "esbenp.prettier-vscode",
+      "dbaeumer.vscode-eslint",
+      "bradlc.vscode-tailwindcss"
+    ]
+  }
+}

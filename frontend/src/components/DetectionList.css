@@ -1,0 +1,105 @@
+.class-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+.class-tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--bg-deep);
+  border: 1px solid color-mix(in srgb, var(--clr) 30%, transparent);
+  border-radius: 2px;
+  padding: 3px 8px;
+}
+.tag-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--clr);
+  box-shadow: 0 0 4px var(--clr);
+}
+.tag-name { font-size: 0.6rem; color: var(--text-secondary); letter-spacing: 0.06em; }
+.tag-count { font-size: 0.62rem; color: var(--clr); margin-left: 3px; }
+
+.det-filter {
+  width: 100%;
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 0.45rem 0.8rem;
+  color: var(--text-primary);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  outline: none;
+  margin-bottom: 0.6rem;
+}
+.det-filter:focus { border-color: var(--accent); }
+.det-filter::placeholder { color: var(--text-muted); }
+
+.det-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.det-row {
+  display: grid;
+  grid-template-columns: 28px 3px 1fr 52px;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  background: var(--bg-deep);
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition: border-color 0.15s;
+  position: relative;
+}
+.det-row:hover { border-color: color-mix(in srgb, var(--clr) 40%, transparent); }
+
+.det-idx { font-size: 0.6rem; color: var(--text-muted); }
+
+.det-color-bar {
+  width: 3px;
+  height: 100%;
+  background: var(--clr);
+  border-radius: 2px;
+  box-shadow: 0 0 4px var(--clr);
+  min-height: 20px;
+}
+
+.det-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.det-label {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.det-coords { font-size: 0.56rem; color: var(--text-muted); }
+
+.det-score {
+  font-size: 0.72rem;
+  color: var(--clr);
+  text-align: right;
+}
+
+.score-bar-wrap {
+  grid-column: 1 / -1;
+  height: 2px;
+  background: var(--bg-hover);
+  border-radius: 1px;
+  margin: 0 -8px;
+  margin-bottom: -6px;
+}
+.score-bar {
+  height: 100%;
+  background: var(--clr);
+  border-radius: 1px;
+  transition: width 0.3s ease;
+}

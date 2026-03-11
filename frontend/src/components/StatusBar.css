@@ -1,0 +1,35 @@
+.status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 2rem;
+  background: var(--bg-deep);
+  border-top: 1px solid var(--border);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  position: relative;
+}
+.status-bar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.3;
+}
+
+.sb-left, .sb-right, .sb-center {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.sb-center { color: var(--text-secondary); }
+.sb-sep { opacity: 0.4; }
+
+.sb-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+}
+.sb-dot.ok  { background: var(--success); box-shadow: 0 0 4px var(--success); }
+.sb-dot.err { background: var(--danger); }

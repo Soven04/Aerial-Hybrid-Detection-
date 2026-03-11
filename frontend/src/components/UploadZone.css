@@ -1,0 +1,183 @@
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.2rem;
+  position: relative;
+  animation: scan-in 0.4s ease both;
+}
+.panel-label {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Drop zone */
+.drop-zone {
+  border: 1.5px dashed var(--border);
+  border-radius: 3px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  overflow: hidden;
+  position: relative;
+}
+.drop-zone:hover { border-color: var(--accent-dim); background: rgba(0,212,255,0.03); }
+.drop-zone.drag   { border-color: var(--accent); background: var(--accent-glow); }
+.drop-zone.has-file { border-style: solid; border-color: var(--border); }
+
+.drop-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+}
+.drop-icon { color: var(--text-muted); }
+.drop-text {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+}
+.drop-sub { font-size: 0.62rem; color: var(--text-muted); }
+
+.preview-wrap {
+  width: 100%; height: 100%;
+  position: relative;
+  min-height: 220px;
+}
+.preview-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.preview-overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.2s;
+  color: var(--accent); font-size: 0.7rem; letter-spacing: 0.1em;
+}
+.drop-zone:hover .preview-overlay { opacity: 1; }
+
+/* Targeting corners */
+.corner {
+  position: absolute;
+  width: 16px; height: 16px;
+  border-color: var(--accent);
+  border-style: solid;
+  border-width: 0;
+}
+.corner.tl { top:6px; left:6px;  border-top-width:2px; border-left-width:2px; }
+.corner.tr { top:6px; right:6px; border-top-width:2px; border-right-width:2px; }
+.corner.bl { bottom:6px; left:6px;  border-bottom-width:2px; border-left-width:2px; }
+.corner.br { bottom:6px; right:6px; border-bottom-width:2px; border-right-width:2px; }
+
+/* Controls */
+.controls-block {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.control-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.ctrl-label {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  width: 72px;
+  flex-shrink: 0;
+}
+.ctrl-val {
+  font-size: 0.68rem;
+  color: var(--accent);
+  width: 36px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.slider {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 3px;
+  background: var(--bg-hover);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+  cursor: pointer;
+}
+
+/* Detect button */
+.detect-btn {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: transparent;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  padding: 0.85rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.detect-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s;
+  opacity: 0.08;
+}
+.detect-btn:hover:not(:disabled)::before { transform: scaleX(1); }
+.detect-btn:hover:not(:disabled) {
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+.detect-btn:disabled {
+  border-color: var(--text-muted);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+.detect-btn.loading {
+  border-color: var(--accent-dim);
+  color: var(--accent-dim);
+}
+.btn-icon { font-size: 1.1rem; }
+
+.spin-ring {
+  display: inline-block;
+  width: 14px; height: 14px;
+  border: 2px solid rgba(0,212,255,0.3);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: radar-spin 0.8s linear infinite;
+}
