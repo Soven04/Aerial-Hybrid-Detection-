@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AerialDet-Hybrid 🛰️
 **Sparse RCNN + Deformable Transformer for Aerial Object Detection**
 
@@ -143,3 +144,6 @@ Input → ResNet Backbone (C3/C4/C5)
 | Feature dim         | 256       |
 | DOTA classes        | 15        |
 | Input size          | 640×640   |
+=======
+# Aerial-Hybrid-Detection-
+>>>>>>> 29febd26fce264f7cbbc3e315a808a31597fe246
